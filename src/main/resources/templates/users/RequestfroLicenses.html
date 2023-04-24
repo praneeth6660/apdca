@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>:APDCA:</title>
+
+<link href="/css/bootstrap.min.css"  type="text/css" rel="stylesheet"/>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+<script src="/js/commonutils.js"></script>
+<script src="/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div th:replace="/navbar :: navbar"></div>
+<br /><br /><br />
+<div class="container">
+  <div class="row col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+          <h2 class="text-center">Request for Licenses</h2>
+      </div>
+      <div th:if="${param.success}">
+          <div class="alert alert-info">
+            You have successfully registered our app!
+          </div>
+      </div>
+      <div class="card-body">
+          <form
+            method="post"
+            role="form"
+            th:action="@{/users/SaveRequestforLicenses}"
+            th:object="${inward}"
+            enctype="multipart/form-data">
+          <div class="form-group row">
+            <div   class="col-md-5 mb-3">
+              <label class="form-label">Firm Name</label>
+              <input
+                      class="form-control"
+                      id="firm_nm"
+                      name="firm_nm"
+                      placeholder="Enter Firm Name"
+                      th:field="*{firm_nm}"
+                      type="text" autocomplete=off
+              />
+              <p th:errors = "firm_nm" class="text-danger"
+              th:if="${#fields.hasErrors('firm_nm')}"></p>
+            </div>
+	<div class="col-md-1 mb-3"> </div>
+            <div  class="col-md-5 mb-3">
+              <label class="form-label">Prop/Contact Person</label>
+              <input
+                      class="form-control"
+                      id="firm_ic"
+                      name="firm_ic"
+                      placeholder="Enter Date of birth"
+                      th:field="*{firm_ic}"
+                      type="text" autocomplete=off
+              />
+              <p th:errors = "*{firm_ic}" class="text-danger"
+                 th:if="${#fields.hasErrors('firm_ic')}"></p>
+            </div>
+</div>
+<div class="form-group row">
+            <div class="col-md-5 mb-3">
+              <label class="form-label">Shop No & Bldg</label>
+              <input
+                      class="form-control"
+                      id="add1"
+                      name="add1"
+                      placeholder="Enter Shop No"
+                      th:field="*{add1}"
+                      type="text" autocomplete=off
+              />
+              <p th:errors = "*{add1}" class="text-danger"
+                 th:if="${#fields.hasErrors('add1')}"></p>
+            </div>
+<div class="col-md-1 mb-3"> </div>
+            <div class="col-md-5 mb-3">
+              <label class="form-label">Address</label>
+              <input
+                      class="form-control"
+                      id="add2"
+                      name="add2"
+                      placeholder="Enter House NO"
+                      th:field="*{add2}"
+                      type="text" autocomplete=off
+              />
+              <p th:errors = "*{add2}" class="text-danger"
+                 th:if="${#fields.hasErrors('add2')}"></p>
+            </div>
+            </div>
+            <div class="form-group row">
+            <div class="col-md-5 mb-3">
+              <label class="form-label">Town</label>
+              <input
+                      class="form-control"
+                      id="town"
+                      name="town"
+                      placeholder="Enter Address"
+                      th:field="*{town}"
+                      type="text" autocomplete=off
+              />
+              <p th:errors = "*{town}" class="text-danger"
+                 th:if="${#fields.hasErrors('town')}"></p>
+            </div>
+             <div class="col-md-1 mb-3"> </div>
+            <div class="col-md-5 mb-3">
+              <label class="form-label">Pin code</label>
+              <input
+                      class="form-control"
+                      id="pin"
+                      name="pin"
+                      placeholder="Enter Pincode"
+                      th:field="*{pin}"
+                      type="text" autocomplete=off
+              />
+              <p th:errors = "*{pin}" class="text-danger"
+                 th:if="${#fields.hasErrors('pin')}"></p>
+            </div>
+            </div>
+             <div class="form-group row">
+            <div class="col-md-5 mb-3">
+            <label class="form-label">Constitution</label>
+             <select class="form-control" th:field="*{firm_con}">
+                         <option value=""> --Select--- </option>
+                         <option th:each="fdca_code : ${fdca_codes}"
+                            th:value="${fdca_code.catg_cd}"
+                            th:utext="${fdca_code.catg_nm}"/>
+                  </select>
+                  <p th:errors = "*{pin}" class="text-danger"
+                 th:if="${#fields.hasErrors('pin')}"></p>
+                  </div>
+                     <div class="col-md-1 mb-3"> </div>
+            <div class="col-md-5 mb-3">
+            <label class="form-label">Category</label>
+             <select class="form-control" th:field="*{firm_type}">
+                         <option value=""> --Select--- </option>
+                         <option value="FRM">Firm</option>
+                         <option value="BRA">Branch</option>
+                         <option value="GOD">GowDown</option>
+                  </select>
+                  <p th:errors = "*{firm_type}" class="text-danger"
+                 th:if="${#fields.hasErrors('firm_type')}"></p>
+                  </div>
+                  </div>
+            <div class="form-group row">
+            <div class="col-md-5 mb-3">
+              <label class="form-label">Email id</label>
+              <input
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="Enter Email Address"
+                      th:field="*{email}"
+                      type="email" autocomplete=off
+              />
+              <p th:errors = "*{email}" class="text-danger"
+                 th:if="${#fields.hasErrors('email')}"></p>
+            </div>
+           
+            <div class="col-md-1 mb-3"> </div>
+         
+            <div class="col-md-5 mb-3">
+              <label class="form-label">Mobile No</label>
+              <input
+                      class="form-control"
+                      id="phone"
+                      name="phone"
+                      placeholder="Enter Phone Number"
+                      th:field="*{phone}"
+                      type="number" autocomplete=off
+              />
+              <p th:errors = "*{phone}" class="text-danger"
+                 th:if="${#fields.hasErrors('phone')}"></p>
+            </div>
+           </div>
+            <div class="form-group row">
+            <div class="col-md-5 mb-3">
+            <label class="form-label">Circle Name</label>
+             <select class="form-control" th:field="*{cir_cd}" th:onchange="getMandals(this.value,'area_cd')">
+                         <option value=""> --Select--- </option>
+                         <option th:each="circle_list : ${circle_list}"
+                            th:value="${circle_list.cir_cd}"
+                            th:utext="${circle_list.cir_nm}"/>
+                  </select>
+                  <p th:errors = "*{cir_cd}" class="text-danger"
+                 th:if="${#fields.hasErrors('cir_cd')}"></p>
+                  </div>
+                     <div class="col-md-1 mb-3"> </div>
+            <div class="col-md-5 mb-3">
+            <label class="form-label">Area Name</label>
+             <select class="form-control" th:attr="id=area_cd" th:field="*{area_cd}" th:onchange="getJurisdiction('cir_cd','area_cd','jur_cd')">
+                         <option value=""> --Select--- </option>
+                         
+                  </select>
+                  <p th:errors = "*{area_cd}" class="text-danger"
+                 th:if="${#fields.hasErrors('area_cd')}"></p>
+                  </div>
+                  </div>
+                  <div class="form-group row">
+            <div class="col-md-5 mb-3">
+            <label class="form-label">Jurisdiction</label>
+             <select class="form-control" th:field="*{jur_cd}" th:attr="id=jur_cd" >
+                         <option value=""> --Select--- </option>
+                         
+                  </select>
+                  <p th:errors = "*{jur_cd}" class="text-danger"
+                 th:if="${#fields.hasErrors('jur_cd')}"></p>
+                  </div>
+                     <div class="col-md-1 mb-3"> </div>
+                     <div class="col-md-5 mb-3">
+              <label class="form-label">Mobile Sms</label>
+              <input
+                      class="form-control"
+                      id="mob_sms"
+                      name="mob_sms"
+                      placeholder="Enter Phone Number"
+                      th:field="*{mob_sms}"
+                      type="number" autocomplete=off
+              />
+              <p th:errors = "*{mob_sms}" class="text-danger"
+                 th:if="${#fields.hasErrors('mob_sms')}"></p>
+            </div>
+           </div>
+           <div class="form-group row">
+            <div class="col-md-5 mb-3">
+            <label class="form-label">Photo Upload</label>
+            <input  class="form-control" id="file_type" name="file_type"  accept="image/*" type="file">
+            <p th:errors = "*{file_name}" class="text-danger"
+                 th:if="${#fields.hasErrors('file_name')}"></p>
+            </div>
+              <div class="col-md-1 mb-3"> </div>
+                     <div class="col-md-5 mb-3">
+              <label class="form-label">Apply for Licenses</label>
+              <select class="form-control" th:field="*{lic_form}" multiple="multiple">
+                         <option value=""> --Select--- </option>
+                         <option th:each="licensesList : ${licensesList}"
+                            th:value="${licensesList.licForm}"
+                            th:utext="${licensesList.licCd}"/>
+                  </select>
+                  <p th:errors = "*{lic_form}" class="text-danger"
+                 th:if="${#fields.hasErrors('lic_form')}"></p>
+              </div>
+            </div>
+                     
+            <div class="form-group" align="center">
+              <button class="btn btn-success" type="submit">Submit</button>
+              <button class="btn btn-warning" type="reset">Reset</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

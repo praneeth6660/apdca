@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>:APDCA:</title>
+
+<link href="/css/bootstrap.min.css"  type="text/css" rel="stylesheet"/>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet"  href="/css/fontawesome.min.css">
+</head>
+<body>
+
+<div th:replace="/navbar :: navbar"></div>
+<br /><br /><br />
+<section class="container"> <!--     <table border="0" width="20%"   >  -->
+
+		<div class="my-md-5 my-0 ">
+			<p>
+
+			</p>
+
+			<form>
+
+				<table style="width: 50%; display: none" align="center"
+					id="firmdetails">
+					<tr>
+						<td><label class="pure-material-textfield-outlined">
+								<input type="text" name="firm_no" id="firm_no" placeholder=" "
+								onchange="return chckfirmdetails()"> <span>Firm
+									No:</span></td>
+						<td><label class="pure-material-textfield-outlined">
+								<input type="text" name="firm_nm" id="firm_nm" placeholder=" ">
+								<span>Firm Name:</span></td>
+
+					</tr>
+					<tr>
+
+						<td colspan="2" id="empname"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span>Upload License:</span> <input
+							type="file" id="myfile" name="myfile"></td>
+					</tr>
+					<tr>
+						<td colspan="2" style="align: center; padding-left: 180px;">
+							<button type="submit" class="btn btn-primary">Send For
+								Approval</button>
+						</td>
+					</tr>
+				</table>
+
+
+
+
+			</form>
+
+
+
+
+		</div>
+
+
+
+		</section>
+<table cellspacing="10" cellpadding="10" align="center"
+			style="width: 75%; border: 1px solid #436d51;">
+			<tr class="card-header">
+				<td style="text-align: center;"><font size=5>REQUIRED
+						DOCUMENTS FOR LICENSES</font></td>
+			</tr>
+
+			<tr>
+				<td>
+					<table cellspacing="10" cellpadding="10" align="center"
+						style="width: 90%; border: 1px solid #436d51;"
+						class="tblbackground">
+						<tr class="card-header">
+							<td style="text-align: center;"><font size=> CHECK
+									LIST FOR GRANT / CHANGE OF PREMISES OF RETAIL LICENCE FROM-20,
+									21 (RETAIL)</font></td>
+						</tr>
+
+						<tr>
+							<td><b>Statutory form-19 for licenses in form (20,21).</b></td>
+						</tr>
+						<tr>
+							<td>Payment of Rs.1500/- for each license (for each form)
+								through Paymtny Gateway</td>
+						</tr>
+						<tr>
+							<td>Declaration by the proprietor / Partner / Director /
+								Competent Persons / Regd. Pharmacist with proof of residential
+								address (Present and Permanent) for proof of residential address
+								– Aadhar Card, Ration Card, Pass Port, Driving License, Voter
+								ID.</td>
+						</tr>
+						<tr>
+							<td>Attested copy of partnership deed (on Rs.500/- stamp
+								paper) / Memorandum and Atricles of Association.</td>
+						</tr>
+						<tr>
+							<td>Copy of list of Directors downloaded from ROC website
+								signed by Company Secretary / Managing Director (In case of
+								company).</td>
+						</tr>
+						<tr>
+							<td>In case of company an Affidavit under Section 34 of
+								Drugs and Cosmetics Act, 1940 on Rs.20/- stamp paper duly
+								notarized along with copy of its board resolution to this effect
+								signed by company Secretary or Managing Director or Majority of
+								the Directors of the company.</td>
+						</tr>
+						<tr>
+							<td>Special declaration by Registered Pharmacist on Rs.20/-
+								Non-Judicial stamp paper.</td>
+						</tr>
+						<tr>
+							<td>Attested copy of Registered Pharmacist certificate
+								(renewal up to date) affixed with latest original photograph and
+								signature of the candidate / original to be produced to the
+								Drugs Inspector at the time of inspection for endorsement.</td>
+						</tr>
+						<tr>
+							<td>Original plan of the premises indicating the carpet area
+								(specifying length and breadth in meters and area in Sq.m) by
+								the Licensed Draftsman / Planner along with the signature of
+								Building owner and the applicant (Prop/ partners / Authorized
+								signatory / Managing Director, etc,.) in a legal size.</td>
+						</tr>
+						<tr>
+							<td>Original declaration of building owner attested by
+								Gazetted officer (Photograph of the building owner to be
+								attested by the Gazetted officer).</td>
+						</tr>
+						<tr>
+							<td>Attested photocopy of the document showing the proof of
+								ownership of the building owner for the premises to be licensed
+								(E.C / any other legal document showing the present ownership.<b>Attestation
+									by Gazetted Officer only</b>
+							</td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+			<br>
+			<tr>
+				<td>
+					<table cellspacing="10" cellpadding="10" align="center"
+						style="width: 90%; border: 1px solid #436d51;"
+						class="tblbackground">
+						<tr class="card-header">
+							<td style="text-align: center;"><font size=> CHECK
+									LIST FOR GRANT / CHANGE OF PREMISES OF WHOLESALE LICENCE
+									FORM-20B, 21B (WHOLESALE)</font></td>
+						</tr>
+
+						<tr>
+							<td>Statutory form – 19 for licenses in form (20B,21B).</td>
+						</tr>
+						<tr>
+							<td>Payment of Rs.1500/- for each license (for each form)
+								through Paymtny Gateway</td>
+						</tr>
+						<tr>
+							<td>Declaration by the proprietor / Partner / Director /
+								Competent Persons / Regd. Pharmacist with proof of residential
+								address (Present and Permanent) for proof of residential address
+								– Aadhar Card, Ration Card, Pass Port, Driving License, Voter
+								ID.</td>
+						</tr>
+						<tr>
+							<td>Attested copy of partnership deed (on Rs.500/- stamp
+								paper) / Memorandum and Atricles of Association.</td>
+						</tr>
+						<tr>
+							<td>Copy of list of Directors downloaded from ROC website
+								signed by Company Secretary / Managing Director (In case of
+								company).</td>
+						</tr>
+						<tr>
+							<td>In case of company an Affidavit under Section 34 of
+								Drugs and Cosmetics Act, 1940 on Rs.20/- stamp paper duly
+								notarized along with copy of its board resolution to this effect
+								signed by company Secretary or Managing Director or Majority of
+								the Directors of the company.</td>
+						</tr>
+						<tr>
+							<td>Special declaration by Registered Pharmacist on Rs.20/-
+								Non-Judicial stamp paper (in case of Registered Pharmacist is
+								appointed as C.P).</td>
+						</tr>
+						<tr>
+							<td>Attested copy of Registered Pharmacist certificate
+								(renewal up to date) affixed with latest original photograph and
+								signature of the candidate (in case of Registered Pharmacist is
+								appointed as C.P) / SSC / degree certificate (in case of
+								candidate other than R.P).</td>
+						</tr>
+						<tr>
+							<td>Original plan of the premises indicating the carpet area
+								(specifying length and breadth in meters and area in Sq.m) by
+								the Licensed Draftsman / Planner along with the signature of
+								Building owner and the applicant (Prop/ partners / Authorized
+								signatory / Managing Director, etc,.) in a legal size.</td>
+						</tr>
+						<tr>
+							<td>Original declaration of building owner attested by
+								Gazetted officer (Photograph of the building owner to be
+								attested by the Gazetted officer).</td>
+						</tr>
+						<tr>
+							<td>Attested photocopy of the document showing the proof of
+								ownership of the building owner for the premises to be licensed
+								(E.C / any other legal document showing the present ownership.</td>
+						</tr>
+						<tr>
+							<td>Experience certificate of Competent person.</td>
+						</tr>
+					</table> <br>
+			<tr>
+				<td>
+		</table>
+	</form>
+	<br>
+</body>
+</html>
